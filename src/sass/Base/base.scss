@@ -136,10 +136,25 @@ table {
 }
 
 .container {
-  margin: 5% 5% 0 5%;
+  margin: 0% 5% 0 5%;
+  padding-top: 5%;
 }
 
 img {
   height: 100%;
   width: 100%;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  color: #ffffff;
+  line-height: 1;
+  cursor: pointer;
+}
+
+main {
+  min-height: calc(100vh - 209px);
 }

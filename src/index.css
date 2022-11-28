@@ -137,12 +137,27 @@ table {
 }
 
 .container {
-  margin: 5% 5% 0 5%;
+  margin: 0% 5% 0 5%;
+  padding-top: 5%;
 }
 
 img {
   height: 100%;
   width: 100%;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  color: #ffffff;
+  line-height: 1;
+  cursor: pointer;
+}
+
+main {
+  min-height: calc(100vh - 209px);
 }
 
 .header {
@@ -232,6 +247,39 @@ footer img {
 }
 footer span {
   color: white;
+}
+
+.collapses {
+  display: flex;
+  flex-direction: column;
+}
+.collapses .collapse {
+  position: relative;
+  margin: 10px 0;
+}
+.collapses .collapse__btn {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ff6060;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  text-align: left;
+}
+.collapses .collapse__btn svg {
+  width: 15px;
+}
+.collapses .collapse__content {
+  background-color: #f6f6f6;
+  border-radius: 0 0 5px 5px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 142.6%;
+  padding: 25px 11px;
+}
+.collapses .collapse__content span {
+  color: #ff6060;
 }
 
 .container main {
