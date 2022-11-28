@@ -1,0 +1,16 @@
+footer {
+  height: 209px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: black;
+  & img {
+    height: 40px;
+    width: 122px;
+  }
+
+  & span {
+    color: white;
+  }
+}

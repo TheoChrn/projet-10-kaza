@@ -1,13 +1,258 @@
-body {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  text-decoration: none;
+  color: black;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: "Montserrat", sans-serif;
+  vertical-align: baseline;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.container {
+  margin: 5% 5% 0 5%;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.header figure {
+  width: 145px;
+  height: 47px;
+}
+.header figure img {
+  width: 100%;
+  height: 100%;
+}
+.header nav {
+  display: flex;
+  align-items: center;
+}
+.header nav ul {
+  display: flex;
+  flex-direction: row;
+}
+.header nav ul .nav li {
+  padding-left: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #ff6060;
+}
+.header nav ul .nav li :nth-child(2) {
+  padding-left: 0px;
+  padding-right: 5px;
+}
+.header nav ul .nav-active {
+  text-decoration: underline;
+  text-decoration-color: #ff6060;
+}
+
+.cards {
+  display: grid;
+  margin-top: 20px;
+  gap: 20px;
+}
+.cards .card {
+  height: 255px;
+  width: 100%;
+}
+.cards .card figure {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.cards .card figure::before {
+  bottom: 0;
+  box-shadow: inset 0 -100px 75px -125px black;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 12;
+  border-radius: 10px;
+}
+.cards .card figure img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+.cards .card figure h2 {
+  position: absolute;
+  bottom: 15px;
+  font-size: 18px;
+  left: 20px;
+  color: white;
+  line-height: 25.67px;
+}
+
+footer {
+  height: 209px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background-color: black;
+}
+footer img {
+  height: 40px;
+  width: 122px;
+}
+footer span {
+  color: white;
+}
+
+.container main {
+  margin: 20px 0;
+}
+.container main .slogan {
+  background-image: url("./assets/Images/IMG.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 95%;
+  width: 100%;
+  height: 111px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: black;
+}
+.container main .slogan h1 {
+  padding-left: 15px;
+  font-size: 24px;
+  color: white;
+}
+
+/*# sourceMappingURL=index.css.map */
