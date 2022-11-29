@@ -303,6 +303,17 @@ footer span {
   color: white;
 }
 
+.container #illustration {
+  margin-bottom: 10px;
+  height: 223px;
+  width: 100%;
+  background: url("./assets/Images/about-background.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 25px;
+}
+
 .container .notFoundContainer {
   display: flex;
   flex-direction: column;
