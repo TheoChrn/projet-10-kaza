@@ -303,4 +303,41 @@ footer span {
   color: white;
 }
 
+.container .notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+.container .notFoundContainer .notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.container .notFoundContainer .notFound h1 {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 137px;
+  letter-spacing: 0em;
+  color: #ff6060;
+}
+.container .notFoundContainer .notFound span {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 142.6%;
+  color: #ff6060;
+}
+.container .notFoundContainer button {
+  color: #ff6060;
+  background: none;
+  text-decoration: underline;
+  text-decoration-color: #ff6060;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 142.6%;
+  text-align: center;
+}
+
 /*# sourceMappingURL=index.css.map */
