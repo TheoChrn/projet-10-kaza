@@ -33,7 +33,11 @@ const About = () => {
         <div id="illustration"></div>
         <section className="collapses">
           {collapses.map((c) => (
-            <Collapse value={c.value} description={c.description} />
+            <Collapse
+              key={c.value}
+              value={c.value}
+              description={c.description}
+            />
           ))}
         </section>
       </main>

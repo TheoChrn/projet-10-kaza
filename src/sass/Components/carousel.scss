@@ -1,0 +1,46 @@
+.slideshowContainer {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: nowrap;
+
+  & .prev,
+  & .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    & svg {
+      width: 12;
+      height: 20px;
+    }
+  }
+  & .prev {
+    left: 0;
+  }
+
+  & .next {
+    right: 0;
+  }
+
+  & .mediaContainer {
+    flex: 0 0 100%;
+    position: relative;
+    width: 100%;
+    height: 255px;
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    & figcaption {
+      visibility: hidden;
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      color: white;
+    }
+  }
+}

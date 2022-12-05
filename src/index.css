@@ -152,6 +152,7 @@ button {
   margin: 0;
   text-decoration: none;
   color: #ffffff;
+  background: none;
   line-height: 1;
   cursor: pointer;
 }
@@ -258,6 +259,7 @@ footer span {
   margin: 10px 0;
 }
 .collapses .collapse__btn {
+  position: relative;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -271,6 +273,7 @@ footer span {
   width: 15px;
 }
 .collapses .collapse__content {
+  margin-top: -5px;
   background-color: #f6f6f6;
   border-radius: 0 0 5px 5px;
   font-weight: 400;
@@ -278,8 +281,51 @@ footer span {
   line-height: 142.6%;
   padding: 25px 11px;
 }
-.collapses .collapse__content span {
+.collapses .collapse__content span,
+.collapses .collapse__content li {
   color: #ff6060;
+}
+
+.slideshowContainer {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+.slideshowContainer .prev, .slideshowContainer .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.slideshowContainer .prev svg, .slideshowContainer .next svg {
+  width: 12;
+  height: 20px;
+}
+.slideshowContainer .prev {
+  left: 0;
+}
+.slideshowContainer .next {
+  right: 0;
+}
+.slideshowContainer .mediaContainer {
+  flex: 0 0 100%;
+  position: relative;
+  width: 100%;
+  height: 255px;
+}
+.slideshowContainer .mediaContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.slideshowContainer .mediaContainer figcaption {
+  visibility: hidden;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  color: white;
 }
 
 .container main {
@@ -349,6 +395,74 @@ footer span {
   font-size: 14px;
   line-height: 142.6%;
   text-align: center;
+}
+
+.container .accommodationInfo {
+  margin-top: 15px;
+}
+.container .accommodationInfo .accommodationTitle h1, .container .accommodationInfo .accommodationTitle h3 {
+  color: #ff6060;
+}
+.container .accommodationInfo .accommodationTitle h1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+.container .accommodationInfo .accommodationTitle h3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.container .accommodationInfo .accommodationContent {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.container .accommodationInfo .accommodationContent .accommodationTags {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1/span 3;
+  gap: 10px;
+  text-align: center;
+}
+.container .accommodationInfo .accommodationContent .accommodationTags li {
+  border-radius: 5px;
+  color: white;
+  display: inline;
+  background-color: #ff6060;
+  padding: 3px 22px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0em;
+  margin: auto 0;
+}
+.container .accommodationInfo .accommodationContent .accommodationRating {
+  grid-column: 1/1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.container .accommodationInfo .accommodationContent .accommodationHost {
+  grid-column: 3/3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.container .accommodationInfo .accommodationContent .accommodationHost h2 {
+  text-align: right;
+  width: min-content;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #ff6060;
+}
+.container .accommodationInfo .accommodationContent .accommodationHost img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=index.css.map */

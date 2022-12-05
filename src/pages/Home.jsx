@@ -1,9 +1,18 @@
 import Header from "../components/Header";
 import Cards from "../components/Cards";
-import data from "../data.json";
+import { useEffect, useState } from "react";
+import { getAll } from "../API/Api";
 
 const Home = () => {
-  const accommodation = data;
+  const [accommodations, setAccommodations] = useState([]);
+
+  const loadAccommodations = async () => {
+    setAccommodations(await getAll());
+  };
+
+  useEffect(() => {
+    loadAccommodations();
+  }, []);
 
   return (
     <div className="container">
@@ -13,7 +22,7 @@ const Home = () => {
           <h1>Chez vous, partout et ailleurs</h1>
         </div>
         <section className="cards">
-          {accommodation.map((accommodation) => (
+          {accommodations.map((accommodation) => (
             <Cards key={accommodation.id} accommodation={accommodation} />
           ))}
         </section>

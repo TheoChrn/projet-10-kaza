@@ -6,6 +6,7 @@
     position: relative;
     margin: 10px 0;
     &__btn {
+      position: relative;
       align-items: center;
       display: flex;
       justify-content: space-between;
@@ -20,6 +21,7 @@
       }
     }
     &__content {
+      margin-top: -5px;
       background-color: $SecondaryColor;
       border-radius: 0 0 5px 5px;
       font-weight: 400;
@@ -27,7 +29,8 @@
       line-height: 142.6%;
       padding: 25px 11px;
 
-      & span {
+      & span,
+      li {
         color: $PrimaryColor;
       }
     }
