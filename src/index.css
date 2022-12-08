@@ -158,7 +158,7 @@ button {
 }
 
 main {
-  min-height: calc(100vh - 209px);
+  min-height: 100vh;
 }
 
 .header {
@@ -187,15 +187,21 @@ main {
   font-size: 12px;
   color: #ff6060;
 }
-.header nav ul .nav li :nth-child(2) {
-  padding-left: 0px;
-  padding-right: 5px;
-}
 .header nav ul .nav-active {
   text-decoration: underline;
   text-decoration-color: #ff6060;
 }
 
+@media (min-width: 1024px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header nav ul .nav li {
+    font-size: 24px;
+    padding-left: 50px;
+  }
+}
 .cards {
   display: grid;
   margin-top: 20px;
@@ -229,11 +235,33 @@ main {
   position: absolute;
   bottom: 15px;
   font-size: 18px;
+  width: 80%;
   left: 20px;
   color: white;
   line-height: 25.67px;
 }
 
+/* Tablet responsive */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Dekstop responsive */
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #f6f6f6;
+    border-radius: 25px;
+    padding: 50px;
+    gap: 60px;
+    justify-content: space-around;
+  }
+  .cards .card {
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
 footer {
   height: 209px;
   display: flex;
@@ -248,18 +276,23 @@ footer img {
 }
 footer span {
   color: white;
+  font-size: 12px;
 }
 
+/* Desktop responsive */
+@media (min-width: 1024px) {
+  footer span {
+    font-size: 24px;
+  }
+}
 .collapses {
   display: flex;
   flex-direction: column;
 }
 .collapses .collapse {
-  position: relative;
   margin: 10px 0;
 }
 .collapses .collapse__btn {
-  position: relative;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -268,6 +301,7 @@ footer span {
   height: 30px;
   border-radius: 5px;
   text-align: left;
+  font-size: 13px;
 }
 .collapses .collapse__btn svg {
   width: 15px;
@@ -286,6 +320,48 @@ footer span {
   color: #ff6060;
 }
 
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collapses {
+    flex-direction: row;
+    gap: 35px;
+  }
+  .collapses .collapse {
+    width: 50%;
+  }
+  .collapses .collapse__btn {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .collapses {
+    flex-direction: row;
+    grid-row: 3/3;
+    gap: 35px;
+  }
+  .collapses .collapse {
+    height: 50px;
+  }
+  .collapses .collapse--full {
+    width: 100%;
+  }
+  .collapses .collapse--md {
+    width: 50%;
+  }
+  .collapses .collapse__btn {
+    line-height: 25.67px;
+    height: 100%;
+    width: 100%;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+  .collapses__content span,
+  .collapses__content li {
+    font-size: 18px;
+  }
+}
 .slideshowContainer {
   position: relative;
   display: flex;
@@ -299,7 +375,6 @@ footer span {
   z-index: 1;
 }
 .slideshowContainer .prev svg, .slideshowContainer .next svg {
-  width: 12;
   height: 20px;
 }
 .slideshowContainer .prev {
@@ -323,55 +398,83 @@ footer span {
 .slideshowContainer .mediaContainer figcaption {
   visibility: hidden;
   position: absolute;
-  bottom: 5px;
+  bottom: 20px;
   left: 50%;
+  font-size: 18px;
   color: white;
 }
 
-.container main {
-  margin: 20px 0;
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .slideshowContainer .prev svg, .slideshowContainer .next svg {
+    height: 80px;
+  }
+  .slideshowContainer .mediaContainer {
+    height: 415px;
+  }
+  .slideshowContainer .mediaContainer figcaption {
+    visibility: visible;
+  }
 }
-.container main .slogan {
-  background-image: url("./assets/Images/IMG.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 95%;
+.container .background {
+  position: relative;
   width: 100%;
   height: 111px;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  background-color: black;
 }
-.container main .slogan h1 {
-  padding-left: 15px;
+.container .background h1 {
+  width: 65%;
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
   font-size: 24px;
   color: white;
+  font-weight: 500;
 }
-
-.container #illustration {
+.container .background--about {
   margin-bottom: 10px;
   height: 223px;
   width: 100%;
-  background: url("./assets/Images/about-background.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   border-radius: 25px;
 }
+.container .background img {
+  filter: brightness(70%);
+  border-radius: 10px;
+  object-fit: cover;
+}
 
+@media (min-width: 1024px) {
+  .container main .background {
+    height: 223px;
+  }
+  .container main .background h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+  }
+}
+.container main {
+  margin: 20px 0;
+}
+
+@media (min-width: 1024px) {
+  .container main {
+    margin: 50px 0;
+  }
+}
 .container .notFoundContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container .notFoundContainer .notFound {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 100%;
 }
 .container .notFoundContainer .notFound h1 {
   font-size: 96px;
@@ -397,21 +500,23 @@ footer span {
   text-align: center;
 }
 
+@media (min-width: 1024px) {
+  .container .notFoundContainer .notFound {
+    margin-top: 120px;
+  }
+  .container .notFoundContainer .notFound h1 {
+    font-size: 288px;
+    margin-bottom: 120px;
+  }
+  .container .notFoundContainer .notFound span {
+    font-size: 36px;
+  }
+  .container .notFoundContainer button {
+    font-size: 18px;
+  }
+}
 .container .accommodationInfo {
   margin-top: 15px;
-}
-.container .accommodationInfo .accommodationTitle h1, .container .accommodationInfo .accommodationTitle h3 {
-  color: #ff6060;
-}
-.container .accommodationInfo .accommodationTitle h1 {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 26px;
-}
-.container .accommodationInfo .accommodationTitle h3 {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
 }
 .container .accommodationInfo .accommodationContent {
   margin: 10px 0;
@@ -419,12 +524,29 @@ footer span {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+.container .accommodationInfo .accommodationContent .accommodationTitle {
+  grid-column: 1/span 3;
+}
+.container .accommodationInfo .accommodationContent .accommodationTitle h1, .container .accommodationInfo .accommodationContent .accommodationTitle h3 {
+  color: #ff6060;
+}
+.container .accommodationInfo .accommodationContent .accommodationTitle h1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+.container .accommodationInfo .accommodationContent .accommodationTitle h3 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
 .container .accommodationInfo .accommodationContent .accommodationTags {
   display: flex;
   flex-wrap: wrap;
   grid-column: 1/span 3;
   gap: 10px;
   text-align: center;
+  align-items: center;
 }
 .container .accommodationInfo .accommodationContent .accommodationTags li {
   border-radius: 5px;
@@ -434,9 +556,7 @@ footer span {
   padding: 3px 22px;
   font-size: 10px;
   font-weight: 500;
-  line-height: 14px;
-  letter-spacing: 0em;
-  margin: auto 0;
+  line-height: 142.6%;
 }
 .container .accommodationInfo .accommodationContent .accommodationRating {
   grid-column: 1/1;
@@ -448,7 +568,6 @@ footer span {
   grid-column: 3/3;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: 10px;
 }
 .container .accommodationInfo .accommodationContent .accommodationHost h2 {
@@ -463,6 +582,52 @@ footer span {
   height: 32px;
   width: 32px;
   border-radius: 50%;
+}
+
+/** DESKTOP */
+@media (min-width: 1024px) {
+  .container .accommodationInfo {
+    margin-top: 30px;
+  }
+  .container .accommodationInfo .accommodationContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row: 2/2;
+    grid-column: 1/span 3;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationTitle {
+    grid-column: 1/3;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationTitle h1, .container .accommodationInfo .accommodationContent .accommodationTitle h3 {
+    margin: 5px 0;
+    margin-bottom: 15px;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationTitle h1 {
+    font-size: 36px;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationTitle h3 {
+    font-size: 18px;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationTags {
+    grid-row: 2/2;
+    grid-column: 1/span 2;
+    height: 100%;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationTags li {
+    font-size: 14px;
+    padding: 5px 20px;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationRating {
+    justify-content: flex-end;
+    grid-column: 3/3;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationHost {
+    grid-row: 1/1;
+    grid-column: 3/3;
+  }
+  .container .accommodationInfo .accommodationContent .accommodationHost h2 {
+    font-size: 18px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

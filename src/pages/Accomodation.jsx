@@ -6,7 +6,7 @@ import Collapse from "../components/Collapse";
 import Header from "../components/Header";
 import Rating from "../components/Rating";
 
-const Accomodation = ({}) => {
+const Accomodation = () => {
   const [accommodation, setAccommodation] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,11 +30,11 @@ const Accomodation = ({}) => {
         <main>
           <Carousel data={accommodation.pictures} />
           <section className="accommodationInfo">
-            <div className="accommodationTitle">
-              <h1>{accommodation.title}</h1>
-              <h3>{accommodation.location}</h3>
-            </div>
             <div className="accommodationContent">
+              <div className="accommodationTitle">
+                <h1>{accommodation.title}</h1>
+                <h3>{accommodation.location}</h3>
+              </div>
               <ul className="accommodationTags">
                 {accommodation.tags.map((tag) => (
                   <li key={tag}>{tag}</li>
@@ -62,13 +62,13 @@ const Accomodation = ({}) => {
                 />
               </div>
             </div>
-            <div className="collapses">
+            <section className="collapses">
               <Collapse
                 value={"Description"}
                 description={accommodation.description}
               />
               <Collapse value={"Équipements"} list={accommodation.equipments} />
-            </div>
+            </section>
           </section>
         </main>
       )}

@@ -16,20 +16,33 @@
       display: flex;
       flex-direction: row;
       & .nav {
-        li {
+        & li {
           padding-left: 5px;
           font-weight: 500;
           font-size: 12px;
           color: $PrimaryColor;
-          & :nth-child(2) {
-            padding-left: 0px;
-            padding-right: 5px;
-          }
         }
 
         &-active {
           text-decoration: underline;
           text-decoration-color: $PrimaryColor;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    & nav {
+      & ul {
+        & .nav {
+          & li {
+            font-size: 24px;
+            padding-left: 50px;
+          }
         }
       }
     }

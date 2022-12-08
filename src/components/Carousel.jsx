@@ -27,17 +27,30 @@ const Carousel = ({ data }) => {
 
   return (
     <div className="slideshowContainer">
-      <button className="prev" onClick={prev}>
-        <Chevron rotate="rotate(90)" />
-      </button>
-      <button className="next" onClick={next}>
-        <Chevron rotate="rotate(-90)" />
-      </button>
+      {data.length > 1 ? (
+        <button className="prev" onClick={prev}>
+          <Chevron rotate="rotate(90)" />
+        </button>
+      ) : (
+        ""
+      )}
+      {data.length > 1 ? (
+        <button className="next" onClick={next}>
+          <Chevron rotate="rotate(-90)" />
+        </button>
+      ) : (
+        ""
+      )}
+
       <figure className="mediaContainer" key={`figure${currentIndex}`}>
         <img key={currentIndex} src={item} alt={""} />
-        <figcaption key={`caption${currentIndex}`}>{`${currentIndex + 1}/${
-          data.length
-        }`}</figcaption>
+        {data.length > 1 ? (
+          <figcaption key={`caption${currentIndex}`}>{`${currentIndex + 1}/${
+            data.length
+          }`}</figcaption>
+        ) : (
+          ""
+        )}
       </figure>
     </div>
   );

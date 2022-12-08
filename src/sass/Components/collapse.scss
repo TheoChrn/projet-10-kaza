@@ -3,10 +3,8 @@
   flex-direction: column;
 
   & .collapse {
-    position: relative;
     margin: 10px 0;
     &__btn {
-      position: relative;
       align-items: center;
       display: flex;
       justify-content: space-between;
@@ -15,6 +13,7 @@
       height: 30px;
       border-radius: 5px;
       text-align: left;
+      font-size: 13px;
 
       & svg {
         width: 15px;
@@ -32,6 +31,57 @@
       & span,
       li {
         color: $PrimaryColor;
+      }
+    }
+  }
+}
+
+/* TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .collapses {
+    flex-direction: row;
+    gap: 35px;
+    & .collapse {
+      width: 50%;
+      &__btn {
+        width: 100%;
+        padding: 0 20px;
+      }
+    }
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .collapses {
+    flex-direction: row;
+    grid-row: 3 / 3;
+    gap: 35px;
+
+    & .collapse {
+      height: 50px;
+
+      &--full {
+        width: 100%;
+      }
+
+      &--md {
+        width: 50%;
+      }
+      &__btn {
+        line-height: 25.67px;
+        height: 100%;
+        width: 100%;
+        padding: 0 20px;
+        font-size: 18px;
+        & svg {
+        }
+      }
+    }
+    &__content {
+      & span,
+      li {
+        font-size: 18px;
       }
     }
   }

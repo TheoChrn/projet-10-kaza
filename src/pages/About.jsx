@@ -1,8 +1,14 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import Banner from "../components/Banner";
 import Collapse from "../components/Collapse";
 import Header from "../components/Header";
+import aboutBackgroundMobile from "../assets/Images/about-background.svg";
+import aboutBackgroundDesktop from "../assets/Images/about-background-desktop.svg";
 
 const About = () => {
+  const [background, setBackground] = useState(aboutBackgroundDesktop);
   const collapses = [
     {
       value: "Fiabilité",
@@ -26,11 +32,34 @@ const About = () => {
     },
   ];
 
+  const reSize = () => {
+    console.log(background);
+    if (window.innerWidth >= 1024) {
+      setBackground(aboutBackgroundMobile);
+    } else {
+      setBackground(aboutBackgroundDesktop);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", reSize);
+    return () => {
+      window.removeEventListener("resize", reSize);
+    };
+  }, [background]);
+
   return (
     <div className="container">
       <Header />
       <main>
-        <div id="illustration"></div>
+        <Banner
+          img={
+            window.innerWidth > 1024
+              ? aboutBackgroundMobile
+              : aboutBackgroundDesktop
+          }
+          className="background background--bg"
+        />
         <section className="collapses">
           {collapses.map((c) => (
             <Collapse

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Chevron from "./Chevron";
 
-const Collapse = ({ value, description, list }) => {
+const Collapse = ({ value, description, list, size = "full" }) => {
   const [open, setOpen] = useState(false);
   const toggleCollapse = () => {
     setOpen(!open);
   };
 
   return (
-    <div className="collapse">
+    <div className={`collapse collapse--${size}`}>
       <button className="collapse__btn" onClick={toggleCollapse}>
         {value}
         {open ? <Chevron rotate={"rotate(-180)"} /> : <Chevron />}
