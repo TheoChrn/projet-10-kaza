@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Chevron from "./Chevron";
 
-const Carousel = ({ data }) => {
+const Carousel = ({ pictures }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [item, setItem] = useState(data[currentIndex]);
+  const [picture, setPicture] = useState(pictures[currentIndex]);
 
-  const prev = () => {
+  const previousPicture = () => {
     if (currentIndex === 0) {
-      setCurrentIndex(data.length - 1);
+      setCurrentIndex(pictures.length - 1);
     } else {
       setCurrentIndex(currentIndex - 1);
     }
   };
 
-  const next = () => {
-    if (currentIndex === data.length - 1) {
+  const nextPicture = () => {
+    if (currentIndex === pictures.length - 1) {
       setCurrentIndex(0);
     } else {
       setCurrentIndex(currentIndex + 1);
@@ -22,20 +22,20 @@ const Carousel = ({ data }) => {
   };
 
   useEffect(() => {
-    setItem(data[currentIndex]);
-  }, [prev, next]);
+    setPicture(pictures[currentIndex]);
+  }, [previousPicture, nextPicture]);
 
   return (
     <div className="slideshowContainer">
-      {data.length > 1 ? (
-        <button className="prev" onClick={prev}>
+      {pictures.length > 1 ? (
+        <button className="prev" onClick={previousPicture}>
           <Chevron rotate="rotate(90)" />
         </button>
       ) : (
         ""
       )}
-      {data.length > 1 ? (
-        <button className="next" onClick={next}>
+      {pictures.length > 1 ? (
+        <button className="next" onClick={nextPicture}>
           <Chevron rotate="rotate(-90)" />
         </button>
       ) : (
@@ -43,10 +43,10 @@ const Carousel = ({ data }) => {
       )}
 
       <figure className="mediaContainer" key={`figure${currentIndex}`}>
-        <img key={currentIndex} src={item} alt={""} />
-        {data.length > 1 ? (
+        <img key={currentIndex} src={picture} alt={""} />
+        {pictures.length > 1 ? (
           <figcaption key={`caption${currentIndex}`}>{`${currentIndex + 1}/${
-            data.length
+            pictures.length
           }`}</figcaption>
         ) : (
           ""

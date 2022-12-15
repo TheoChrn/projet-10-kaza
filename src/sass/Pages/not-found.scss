@@ -31,7 +31,7 @@
       text-decoration: underline;
       text-decoration-color: $PrimaryColor;
       font-weight: 500;
-      font-size: 14px;
+      font-size: $fontSizeFull;
       line-height: 142.6%;
       text-align: center;
     }
@@ -52,7 +52,7 @@
         }
       }
       & button {
-        font-size: 18px;
+        font-size: $fontSizeFull;
       }
     }
   }

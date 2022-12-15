@@ -10,6 +10,9 @@ const Accomodation = () => {
   const [accommodation, setAccommodation] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
+  const [starSize, setStarSize] = useState(
+    window.innerWidth >= 1024 ? "30px" : "16xp"
+  );
 
   const loadAccommodation = async () => {
     const acc = await getById(id);
@@ -18,6 +21,21 @@ const Accomodation = () => {
     }
     setAccommodation(acc);
   };
+
+  const reSize = () => {
+    if (window.innerWidth >= 1024) {
+      setStarSize("30px");
+    } else {
+      setStarSize("16px");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", reSize);
+    return () => {
+      window.removeEventListener("resize", reSize);
+    };
+  }, [starSize]);
 
   useEffect(() => {
     loadAccommodation();
@@ -28,7 +46,7 @@ const Accomodation = () => {
       <Header />
       {accommodation && (
         <main>
-          <Carousel data={accommodation.pictures} />
+          <Carousel pictures={accommodation.pictures} />
           <section className="accommodationInfo">
             <div className="accommodationContent">
               <div className="accommodationTitle">
@@ -42,10 +60,11 @@ const Accomodation = () => {
               </ul>
               <ul className="accommodationRating">
                 {[...Array(5)].map((_, index) => {
-                  index += 1;
+                  index++;
                   return (
                     <li key={index}>
                       <Rating
+                        size={starSize}
                         color={
                           index <= accommodation.rating ? "#FF6060" : "#E3E3E3"
                         }
@@ -62,13 +81,19 @@ const Accomodation = () => {
                 />
               </div>
             </div>
-            <section className="collapses">
-              <Collapse
-                value={"Description"}
-                description={accommodation.description}
-              />
-              <Collapse value={"Équipements"} list={accommodation.equipments} />
-            </section>
+            <Collapse
+              size={"md"}
+              content={[
+                {
+                  value: "Description",
+                  description: accommodation.description,
+                },
+                {
+                  value: "Équipements",
+                  description: accommodation.equipments,
+                },
+              ]}
+            />
           </section>
         </main>
       )}

@@ -4,11 +4,13 @@ import { useEffect } from "react";
 import Banner from "../components/Banner";
 import Collapse from "../components/Collapse";
 import Header from "../components/Header";
-import aboutBackgroundMobile from "../assets/Images/about-background.svg";
-import aboutBackgroundDesktop from "../assets/Images/about-background-desktop.svg";
+import mobileAboutBackground from "../assets/Images/background-about-mobile.jpg";
+import desktopAboutBackground from "../assets/Images/Background-desktop.jpg";
 
 const About = () => {
-  const [background, setBackground] = useState(aboutBackgroundDesktop);
+  const [background, setBackground] = useState(
+    window.innerWidth >= 768 ? desktopAboutBackground : mobileAboutBackground
+  );
   const collapses = [
     {
       value: "Fiabilité",
@@ -33,11 +35,10 @@ const About = () => {
   ];
 
   const reSize = () => {
-    console.log(background);
-    if (window.innerWidth >= 1024) {
-      setBackground(aboutBackgroundMobile);
+    if (window.innerWidth >= 768) {
+      setBackground(desktopAboutBackground);
     } else {
-      setBackground(aboutBackgroundDesktop);
+      setBackground(mobileAboutBackground);
     }
   };
 
@@ -52,26 +53,24 @@ const About = () => {
     <div className="container">
       <Header />
       <main>
-        <Banner
-          img={
-            window.innerWidth > 1024
-              ? aboutBackgroundMobile
-              : aboutBackgroundDesktop
-          }
-          className="background background--bg"
-        />
-        <section className="collapses">
-          {collapses.map((c) => (
-            <Collapse
-              key={c.value}
-              value={c.value}
-              description={c.description}
-            />
-          ))}
-        </section>
+        <Banner img={background} className="background background--bg" />
+        <Collapse content={collapses} />
       </main>
     </div>
   );
 };
 
 export default About;
+
+{
+  /*<section className="collapses collapses--full">
+          <Collapse />
+          collapses.map((c) => (
+            <Collapse
+              key={c.value}
+              value={c.value}
+              description={c.description}
+            />
+          ))
+        </section>*/
+}

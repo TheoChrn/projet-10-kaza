@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Chevron from "./Chevron";
 
-const Collapse = ({ value, description, list, size = "full" }) => {
+const Item = ({ children, size, content }) => {
   const [open, setOpen] = useState(false);
   const toggleCollapse = () => {
     setOpen(!open);
@@ -10,23 +10,32 @@ const Collapse = ({ value, description, list, size = "full" }) => {
   return (
     <div className={`collapse collapse--${size}`}>
       <button className="collapse__btn" onClick={toggleCollapse}>
-        {value}
+        {content.value}
         {open ? <Chevron rotate={"rotate(-180)"} /> : <Chevron />}
       </button>
-      {open && (
-        <div className="collapse__content">
-          {value === "Équipements" ? (
+      {open && <div className="collapse__content">{children}</div>}
+    </div>
+  );
+};
+
+const Collapse = ({ size = "full", content }) => {
+  console.log(content);
+  return (
+    <section className={`collapses collapses--${size}`}>
+      {content.map((c, index) => (
+        <Item key={index} size={size} content={c}>
+          {Array.isArray(c.description) ? (
             <ul>
-              {list.map((list) => (
-                <li key={list}>{list}</li>
+              {c.description.map((equipment, index) => (
+                <li key={index}>{equipment}</li>
               ))}
             </ul>
           ) : (
-            <span>{description}</span>
+            <span>{c.description}</span>
           )}
-        </div>
-      )}
-    </div>
+        </Item>
+      ))}
+    </section>
   );
 };
 
