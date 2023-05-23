@@ -1,0 +1,38 @@
+.container {
+  & .notFoundContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    & .notFound {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      & h1 {
+        font-size: 96px;
+        font-weight: 700;
+        line-height: 137px;
+        letter-spacing: 0em;
+        color: $PrimaryColor;
+      }
+      & span {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 142.6%;
+        color: $PrimaryColor;
+      }
+    }
+    & button {
+      color: $PrimaryColor;
+      background: none;
+      text-decoration: underline;
+      text-decoration-color: $PrimaryColor;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 142.6%;
+      text-align: center;
+    }
+  }
+}
