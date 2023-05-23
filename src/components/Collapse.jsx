@@ -19,7 +19,6 @@ const Item = ({ children, size, content }) => {
 };
 
 const Collapse = ({ size = "full", content }) => {
-  console.log(content);
   return (
     <section className={`collapses collapses--${size}`}>
       {content.map((c, index) => (

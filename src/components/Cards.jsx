@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Cards = ({ accommodation }) => {
   return (
-    <NavLink to={`accomodation_${accommodation.id}`}>
+    <NavLink to={`accomodations/${accommodation.id}`}>
       <article className={`card`}>
         <figure>
           <img src={accommodation.cover} alt={`Image ${accommodation.title}`} />
