@@ -1,15 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Cards = ({ accommodation}) => {
+const Cards = ({ accommodation }) => {
   return (
-    <NavLink to={`/accomodation/_id=`}>
-      <article className="card">
+    <NavLink to={`accomodations/${accommodation.id}`}>
+      <article className={`card`}>
         <figure>
-          <img
-            src={accommodation.cover}
-            alt={"Image" + " " + accommodation.title}
-          />
+          <img src={accommodation.cover} alt={`Image ${accommodation.title}`} />
           <h2>{accommodation.title}</h2>
         </figure>
       </article>

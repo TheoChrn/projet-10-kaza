@@ -12,5 +12,16 @@ footer {
 
   & span {
     color: white;
+    font-size: $fontSizeSmall;
+  }
+}
+
+/* Desktop responsive */
+
+@media (min-width: 1024px) {
+  footer {
+    & span {
+      font-size: 24px;
+    }
   }
 }

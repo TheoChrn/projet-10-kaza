@@ -141,8 +141,7 @@ table {
 }
 
 img {
-  height: 100%;
-  width: 100%;
+  @include fullWidthAndHeight;
 }
 
 button {
@@ -151,10 +150,11 @@ button {
   margin: 0;
   text-decoration: none;
   color: #ffffff;
+  background: none;
   line-height: 1;
   cursor: pointer;
 }
 
 main {
-  min-height: calc(100vh - 209px);
+  min-height: 100vh;
 }

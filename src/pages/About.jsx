@@ -1,8 +1,16 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import Banner from "../components/Banner";
 import Collapse from "../components/Collapse";
 import Header from "../components/Header";
+import mobileAboutBackground from "../assets/Images/background-about-mobile.jpg";
+import desktopAboutBackground from "../assets/Images/Background-desktop.jpg";
 
 const About = () => {
+  const [background, setBackground] = useState(
+    window.innerWidth >= 768 ? desktopAboutBackground : mobileAboutBackground
+  );
   const collapses = [
     {
       value: "Fiabilité",
@@ -26,19 +34,43 @@ const About = () => {
     },
   ];
 
+  const reSize = () => {
+    if (window.innerWidth >= 768) {
+      setBackground(desktopAboutBackground);
+    } else {
+      setBackground(mobileAboutBackground);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", reSize);
+    return () => {
+      window.removeEventListener("resize", reSize);
+    };
+  }, [background]);
+
   return (
     <div className="container">
       <Header />
       <main>
-        <div id="illustration"></div>
-        <section className="collapses">
-          {collapses.map((c) => (
-            <Collapse value={c.value} description={c.description} />
-          ))}
-        </section>
+        <Banner img={background} className="background background--bg" />
+        <Collapse content={collapses} />
       </main>
     </div>
   );
 };
 
 export default About;
+
+{
+  /*<section className="collapses collapses--full">
+          <Collapse />
+          collapses.map((c) => (
+            <Collapse
+              key={c.value}
+              value={c.value}
+              description={c.description}
+            />
+          ))
+        </section>*/
+}

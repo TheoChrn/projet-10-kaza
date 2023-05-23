@@ -30,11 +30,38 @@
       & h2 {
         position: absolute;
         bottom: 15px;
-        font-size: 18px;
+        font-size: $fontSizeFull;
+        width: 80%;
         left: 20px;
         color: white;
         line-height: 25.67px;
       }
+    }
+  }
+}
+
+/* Tablet responsive */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dekstop responsive */
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    background-color: $SecondaryColor;
+    border-radius: 25px;
+    padding: 50px;
+    gap: 60px;
+    justify-content: space-around;
+
+    & .card {
+      height: auto;
+      aspect-ratio: 1 / 1;
     }
   }
 }

@@ -1,8 +1,9 @@
-// BASE
-@import "./Base/base.scss";
-
 // Utils
 @import "./Utils/variables.scss";
+@import "./Utils/mixins.scss";
+
+// BASE
+@import "./Base/base.scss";
 
 // LAYOUT
 
@@ -11,11 +12,15 @@
 @import "./Components/card.scss";
 @import "./Components/footer.scss";
 @import "./Components/collapse.scss";
+@import "./Components/carousel.scss";
+@import "./Components/banner.scss";
 
 // PAGES
 @import "./Pages/home.scss";
 @import "./Pages/about.scss";
 @import "./Pages/not-found.scss";
+@import "./Pages/accommodation.scss";
+
 // THEMES
 
 // VENDORS
