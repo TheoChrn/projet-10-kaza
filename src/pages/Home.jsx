@@ -17,7 +17,6 @@ const Home = () => {
   };
 
   const reSize = () => {
-    console.log(background);
     if (window.innerWidth >= 768) {
       setBackground(desktopHomeBackground);
     } else {
